@@ -1,5 +1,7 @@
 package co.qualitysolutions.aunar;
 
+import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -94,6 +96,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 selectItem(position);
             }
         });
@@ -199,6 +202,26 @@ public class NavigationDrawerFragment extends Fragment {
         if (mCallbacks != null) {
             mCallbacks.onNavigationDrawerItemSelected(position);
         }
+        switch (position)
+        {
+
+            case 0: Fragment fragment1 = new Fragment_1();
+                FragmentManager fragmentManager1 = getFragmentManager();
+                fragmentManager1.beginTransaction().replace(R.id.container, fragment1).commit();
+                break;
+            case 1: Fragment fragment2 = new Fragment_2();
+                FragmentManager fragmentManager2 = getFragmentManager();
+                fragmentManager2.beginTransaction().replace(R.id.container, fragment2).commit();
+                break;
+            case 2: Fragment fragment3 = new Fragment_3();
+                FragmentManager fragmentManager3 = getFragmentManager();
+                fragmentManager3.beginTransaction().replace(R.id.container, fragment3).commit();
+                break;
+        }
+
+
+
+
     }
 
     @Override
@@ -244,6 +267,7 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+
             return true;
         }
 
@@ -277,6 +301,7 @@ public class NavigationDrawerFragment extends Fragment {
         /**
          * Called when an item in the navigation drawer is selected.
          */
+
         void onNavigationDrawerItemSelected(int position);
     }
 }

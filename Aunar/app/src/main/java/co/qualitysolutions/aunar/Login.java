@@ -90,8 +90,8 @@ public class Login extends Activity implements OnClickListener {
 
             String [] parameters = {"loguear","Usuario",params[0],params[1],sharedpreferences.getString("PUSH_ID","")};
 
-                //conection.setUrl("http://aunar.qualitysolutions.co/controlador/fachada.php");
-                conection.setUrl("http://192.168.1.14/aunar/controlador/fachada.php");
+                conection.setUrl("http://aunar.qualitysolutions.co/controlador/fachada.php");
+               // conection.setUrl("http://192.168.1.14/aunar/controlador/fachada.php");
                 this.answer = conection.conectar(parameters);
                 try {
                     if(answer.getJSONObject(0).getInt("mensaje")==1){
