@@ -1,4 +1,4 @@
-package recursos;
+package Resources;
 
 import android.app.Activity;
 
@@ -40,19 +40,18 @@ public class WebService extends Activity {
             HttpConnectionParams.setConnectionTimeout(my_httpParams, 3000);
             HttpConnectionParams.setSoTimeout(my_httpParams, 1);*/
 
+            this.valores.add(new BasicNameValuePair("clase",parametros[1]));
+            this.valores.add(new BasicNameValuePair("metodo",parametros[0]));
+
 			DefaultHttpClient client = new DefaultHttpClient();
 			HttpPost request = new HttpPost(this.url);
 			UrlEncodedFormEntity encodeEntity = null;
-			if(parametros[0].equals("login")||parametros[0].equals("login_1")){
-				this.valores.add(new BasicNameValuePair("usuario",parametros[1]));
-				this.valores.add(new BasicNameValuePair("contrasena",parametros[2]));
+			if(parametros[0].equals("loguear")){
+				this.valores.add(new BasicNameValuePair("correo",parametros[2]));
+				this.valores.add(new BasicNameValuePair("contrasena",parametros[3]));
+                this.valores.add(new BasicNameValuePair("push_id",parametros[4]));
 			}
-			else {
-				this.valores.add(new BasicNameValuePair("id",parametros[0]));
-				this.valores.add(new BasicNameValuePair("token",parametros[1]));
-				this.valores.add(new BasicNameValuePair("fechh",parametros[2]));
-				this.valores.add(new BasicNameValuePair("json",parametros[4]));
-			}
+
 			encodeEntity = new UrlEncodedFormEntity(valores,"UTF-8");
 			if (encodeEntity != null){
 				((HttpPost) request).setEntity(encodeEntity);

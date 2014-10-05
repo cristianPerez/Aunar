@@ -1,10 +1,8 @@
-package recursos;
+package Resources;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import org.json.JSONArray;

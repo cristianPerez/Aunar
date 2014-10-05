@@ -14,6 +14,10 @@
     <string name="correo">Email</string>
     <string name="contrasena">Password</string>
     <string name="iniciar">Entrar</string>
+    <string name="titleProgres">Iniciando sesion</string>
+    <string name="messageProgress">Espera unos segundos</string>
+    <string name="loginMalo">Datos incorrectos</string>
+    <string name="completar">Complete los campos</string>
 
 
 
