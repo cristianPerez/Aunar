@@ -15,9 +15,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
+
 import Resources.WebService;
 import android.view.View.OnClickListener;
-
 import com.google.android.gcm.GCMRegistrar;
 
 
@@ -27,7 +28,6 @@ public class Login extends Activity implements OnClickListener {
     private WebService conection;
     private SharedPreferences sharedpreferences;
     private EditText etxUser,etxPassword;
-    private String user,password;
     private JSONArray answer;
     private Button entrar;
 
@@ -43,13 +43,24 @@ public class Login extends Activity implements OnClickListener {
         this.entrar.setOnClickListener(this);
     }
 
+
+    /**
+     * Method to verify if the user have already a session
+     */
     @Override
     protected void onResume() {
         super.onResume();
+
+        if(this.sharedpreferences.getString("USER", null) != null && !this.sharedpreferences.getString("USER", null).equals("") &&
+                this.sharedpreferences.getString("PASSWORD", null) != null && !this.sharedpreferences.getString("PASSWORD", null).equals("")&&
+                    this.sharedpreferences.getString("PUSH_ID", null) != null && !this.sharedpreferences.getString("PUSH_ID", null).equals(""))
+        {
+            Intent intent = new Intent(getApplicationContext(), MyActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void referenceControls() {
-
         this.etxUser = (EditText) findViewById(R.id.user);
         this.etxPassword = (EditText) findViewById(R.id.password);
         this.entrar = (Button) findViewById(R.id.ingresar);
@@ -62,10 +73,7 @@ public class Login extends Activity implements OnClickListener {
             new RequestLogin().execute(this.etxUser.getText().toString(),this.etxPassword.getText().toString());
         }
         else{
-
             Toast.makeText(getApplicationContext(),getResources().getString(R.string.completar),Toast.LENGTH_LONG).show();
-
-
         }
     }
 
@@ -87,24 +95,26 @@ public class Login extends Activity implements OnClickListener {
             registrarId();
             if(sharedpreferences.getString("PUSH_ID","").equals(""))
                 registrarId();
-
             String [] parameters = {"loguear","Usuario",params[0],params[1],sharedpreferences.getString("PUSH_ID","")};
+                //conection.setUrl("http://aunar.qualitysolutions.co/controlador/fachada.php");
+                conection.setUrl(getResources().getString(R.string.urlServicios));
 
-                conection.setUrl("http://aunar.qualitysolutions.co/controlador/fachada.php");
-               // conection.setUrl("http://192.168.1.14/aunar/controlador/fachada.php");
                 this.answer = conection.conectar(parameters);
                 try {
                     if(answer.getJSONObject(0).getInt("mensaje")==1){
+                        JSONObject datos = answer.getJSONObject(0).getJSONObject("datos");
                         SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putString("USER",user);
-                        editor.putString("PASSWORD",password);
+                        editor.putString("USER",params[0]);
+                        editor.putString("PASSWORD",params[1]);
+                        editor.putString("PUSH_ID",sharedpreferences.getString("PUSH_ID",""));
+                        editor.putString("DATA",datos.toString());
                         editor.commit();
                         return true;
                     }
                     else{
                         return false;
                     }
-                } catch (JSONException e) {
+                }catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -118,11 +128,11 @@ public class Login extends Activity implements OnClickListener {
               Toast.makeText(getApplicationContext(),getResources().getString(R.string.loginMalo),Toast.LENGTH_LONG).show();
             }
             else{
-
-                        etxUser.setText("");
-                        etxPassword.setText("");
-                        Intent intent = new Intent(getApplicationContext(), MyActivity.class);
-                        startActivity(intent);
+                //Toast.makeText(getApplicationContext(),sharedpreferences.getString("DATA",""),Toast.LENGTH_LONG).show();
+                etxUser.setText("");
+             etxPassword.setText("");
+             Intent intent = new Intent(getApplicationContext(), MyActivity.class);
+             startActivity(intent);
 
             }
         }

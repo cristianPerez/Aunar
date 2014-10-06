@@ -18,4 +18,6 @@ public class Fragment_1 extends Fragment {
         return inflater.inflate(R.layout.fragment_1, container, false);
     }
 
+
+
 }

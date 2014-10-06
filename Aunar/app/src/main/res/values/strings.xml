@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Aunar</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="app_name">Track Alliance</string>
+    <string name="title_section1">Publicar</string>
+    <string name="title_section2">Envios</string>
+    <string name="title_section3">Bodegas</string>
+    <string name="title_section4">Alianzas</string>
+    <string name="title_section5">Entidades</string>
+    <string name="title_section6">Perfil</string>
+
+    <string name="alertUno">Desea cerrar sesion</string>
+    <string name="confirmButtton1">SI</string>
+    <string name="confirmButtton2">NO</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Salir</string>
+    <string name="urlServicios">http://192.168.1.14/aunar/controlador/fachada.php</string>
 
     <!-- Login -->
-    <string name="correo">Email</string>
-    <string name="contrasena">Password</string>
+    <string name="correo">  Email</string>
+    <string name="contrasena">  Password</string>
     <string name="iniciar">Entrar</string>
     <string name="titleProgres">Iniciando sesion</string>
     <string name="messageProgress">Espera unos segundos</string>

@@ -1,6 +1,10 @@
 package co.qualitysolutions.aunar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -9,6 +13,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +22,7 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MyActivity extends ActionBarActivity
@@ -32,6 +38,8 @@ public class MyActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    private SharedPreferences sharedpreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +53,8 @@ public class MyActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        this.sharedpreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+
     }
 
     @Override
@@ -93,11 +103,10 @@ public class MyActivity extends ActionBarActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            logOut();
+            //Toast.makeText(getApplicationContext(),"hola como estas",Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -141,6 +150,39 @@ public class MyActivity extends ActionBarActivity
             ((MyActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        moveTaskToBack(true);
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void logOut() {
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle(getResources().getString(R.string.alertUno));
+        adb.setPositiveButton(
+                getResources().getString(R.string.confirmButtton1),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.clear();
+                        editor.commit();
+                        Intent intent = new Intent(getApplicationContext(),Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);    }
+                });
+        adb.setNegativeButton(
+                getResources().getString(R.string.confirmButtton2),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // TODO Auto-generated method stub
+                        dialog.dismiss();
+                    }
+                });
+        adb.show();
     }
 
 }

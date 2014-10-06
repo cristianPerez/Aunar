@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/cperez354/Documents/workspace/AunargGit/EffectiveNavigation/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-f2baf9acba4aa1909ae13d46b390c5cfeb4ea051.jar"
+        jar="/Users/cperez354/Documents/workspace/AunargGit/EffectiveNavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="/Users/cperez354/Documents/workspace/AunargGit/EffectiveNavigation/app/build/intermediates/pre-dexed/debug/classes-3c1c2a7c8006fa29d3a436a2c005c2b7de2c7ce7.jar"
+        jar="/Users/cperez354/Documents/workspace/AunargGit/EffectiveNavigation/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="/Users/cperez354/Documents/workspace/AunargGit/EffectiveNavigation/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-3143bbf1757ae0b4fc47c53e703ef7c43df33268.jar"
+        jar="/Users/cperez354/Downloads/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+
+</pre-dex-items>
