@@ -3,28 +3,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lstBodegas"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Fragmento 2"
-                android:id="@+id/textView"
-                android:layout_weight="0.56" />
-        </LinearLayout>
-    </RelativeLayout>
+        android:layout_alignParentStart="true"
+        android:footerDividersEnabled="false" />
 </RelativeLayout>
