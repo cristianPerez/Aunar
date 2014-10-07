@@ -29,12 +29,10 @@ public class SaveInformation extends AsyncTask<String, Void, Void> {
 	@Override
 	protected Void doInBackground(String... params){
 		JSONArray answer;
-		String token = this.sharedpreferences.getString("TOKEN", null);
 		if(this.thereIsInternet()){
 				this.connection.setUrl("http://aunar.qualitysolutions.co/controlador/fachada.php");
 
-                String [] parameters = {params[0], params[1], params[2]};
-				answer = this.connection.conectar(parameters);
+				answer = this.connection.conectar(params);
 				try {
 					if(answer.getJSONObject(0).getString("mensaje").equals("1")){
 

@@ -47,11 +47,21 @@ public class WebService extends Activity {
 			HttpPost request = new HttpPost(this.url);
 			UrlEncodedFormEntity encodeEntity = null;
 
-            if(parametros[0].equals("loguear")){
+            if(parametros[0].equals("loguear"))
+            {
 				this.valores.add(new BasicNameValuePair("correo",parametros[2]));
 				this.valores.add(new BasicNameValuePair("contrasena",parametros[3]));
                 this.valores.add(new BasicNameValuePair("push_id",parametros[4]));
 			}
+            else if(parametros[0].equals("envio"))
+            {
+                this.valores.add(new BasicNameValuePair("fecha",parametros[1]));
+                this.valores.add(new BasicNameValuePair("capacidad",parametros[2]));
+                this.valores.add(new BasicNameValuePair("cantidad",parametros[3]));
+                this.valores.add(new BasicNameValuePair("origen",parametros[4]));
+                this.valores.add(new BasicNameValuePair("destino",parametros[5]));
+                this.valores.add(new BasicNameValuePair("entidad",parametros[6]));
+            }
 
 			encodeEntity = new UrlEncodedFormEntity(valores,"UTF-8");
 			if (encodeEntity != null){
