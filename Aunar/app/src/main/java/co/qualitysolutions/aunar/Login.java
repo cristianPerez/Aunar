@@ -96,8 +96,7 @@ public class Login extends Activity implements OnClickListener {
             if(sharedpreferences.getString("PUSH_ID","").equals(""))
                 registrarId();
             String [] parameters = {"loguear","Usuario",params[0],params[1],sharedpreferences.getString("PUSH_ID","")};
-                //conection.setUrl("http://aunar.qualitysolutions.co/controlador/fachada.php");
-                conection.setUrl(getResources().getString(R.string.urlServicios));
+            conection.setUrl(getResources().getString(R.string.urlServicios));
 
                 this.answer = conection.conectar(parameters);
                 try {

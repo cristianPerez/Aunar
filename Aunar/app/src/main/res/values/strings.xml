@@ -16,7 +16,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Salir</string>
-    <string name="urlServicios">http://192.168.1.14/aunar/controlador/fachada.php</string>
+    <string name="urlServicios">http://aunar.qualitysolutions.co/controlador/fachada.php</string>
 
     <!-- Login -->
     <string name="correo">  Email</string>
