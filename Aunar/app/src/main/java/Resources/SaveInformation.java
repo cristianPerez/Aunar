@@ -8,6 +8,8 @@ import android.os.AsyncTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import co.qualitysolutions.aunar.R;
+
 public class SaveInformation extends AsyncTask<String, Void, Void> {
 	
 	private WebService connection;
@@ -29,8 +31,9 @@ public class SaveInformation extends AsyncTask<String, Void, Void> {
 		JSONArray answer;
 		String token = this.sharedpreferences.getString("TOKEN", null);
 		if(this.thereIsInternet()){
-				this.connection.setUrl("http://www.concesionesdeaseo.com/pruebas/FUNEventosMovil/Eventos");
-				String[] parameters = {"10",token,"","backup",""};
+				this.connection.setUrl("http://aunar.qualitysolutions.co/controlador/fachada.php");
+
+                String [] parameters = {params[0], params[1], params[2]};
 				answer = this.connection.conectar(parameters);
 				try {
 					if(answer.getJSONObject(0).getString("mensaje").equals("1")){

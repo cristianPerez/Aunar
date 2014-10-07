@@ -2,12 +2,11 @@
 <resources>
 
     <string name="app_name">Track Alliance</string>
-    <string name="title_section1">Publicar</string>
-    <string name="title_section2">Envios</string>
-    <string name="title_section3">Bodegas</string>
-    <string name="title_section4">Alianzas</string>
-    <string name="title_section5">Entidades</string>
-    <string name="title_section6">Perfil</string>
+    <string name="title_section1">Envios</string>
+    <string name="title_section2">Bodegas</string>
+    <string name="title_section3">Alianzas</string>
+    <string name="title_section4">Entidades</string>
+    <string name="title_section5">Perfil</string>
 
     <string name="alertUno">Desea cerrar sesion</string>
     <string name="confirmButtton1">SI</string>

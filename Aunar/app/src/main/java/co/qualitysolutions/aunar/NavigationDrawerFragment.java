@@ -110,7 +110,6 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section3),
                         getString(R.string.title_section4),
                         getString(R.string.title_section5),
-                        getString(R.string.title_section6),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
@@ -228,10 +227,7 @@ public class NavigationDrawerFragment extends Fragment {
                 FragmentManager fragmentManager5 = getFragmentManager();
                 fragmentManager5.beginTransaction().replace(R.id.container, fragment5).commit();
                 break;
-            case 5: Fragment fragment6 = new Fragment_6();
-                FragmentManager fragmentManager6 = getFragmentManager();
-                fragmentManager6.beginTransaction().replace(R.id.container, fragment6).commit();
-                break;
+
         }
 
     }
