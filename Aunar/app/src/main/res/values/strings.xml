@@ -26,6 +26,20 @@
     <string name="loginMalo">Datos incorrectos</string>
     <string name="completar">Complete los campos</string>
 
+    <!-- Bodega -->
+    <string name="ubicacion">Ubicacion</string>
+    <string name="capacidad">Capacidad</string>
+    <string name="usado">Usado</string>
+    <string name="comentario">Comentario</string>
+    <string name="publicar">Publicar</string>
+
+    <string-array name="ubicaciones">
+        <item>Sultana</item>
+        <item>Enea</item>
+        <item>Malteria</item>
+        <item>Santagueda</item>
+        <item>Arauca</item>
+    </string-array>
 
 
 </resources>
