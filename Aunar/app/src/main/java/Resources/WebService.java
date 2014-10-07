@@ -55,12 +55,12 @@ public class WebService extends Activity {
 			}
             else if(parametros[0].equals("envio"))
             {
-                this.valores.add(new BasicNameValuePair("fecha",parametros[1]));
-                this.valores.add(new BasicNameValuePair("capacidad",parametros[2]));
-                this.valores.add(new BasicNameValuePair("cantidad",parametros[3]));
-                this.valores.add(new BasicNameValuePair("origen",parametros[4]));
-                this.valores.add(new BasicNameValuePair("destino",parametros[5]));
-                this.valores.add(new BasicNameValuePair("entidad",parametros[6]));
+                this.valores.add(new BasicNameValuePair("fecha",parametros[2]));
+                this.valores.add(new BasicNameValuePair("capacidad",parametros[3]));
+                this.valores.add(new BasicNameValuePair("cantidad",parametros[4]));
+                this.valores.add(new BasicNameValuePair("origen",parametros[5]));
+                this.valores.add(new BasicNameValuePair("destino",parametros[6]));
+                this.valores.add(new BasicNameValuePair("entidad",parametros[7]));
             }
 
 			encodeEntity = new UrlEncodedFormEntity(valores,"UTF-8");
